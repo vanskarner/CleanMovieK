@@ -3,7 +3,7 @@ package com.vanskarner.movie.businesslogic
 import com.vanskarner.movie.MovieDetailDS
 import com.vanskarner.movie.MovieError
 
-class ToggleMovieFavoriteUseCase(
+internal class ToggleMovieFavoriteUseCase(
     private val localRepository: MovieLocalRepository,
     private val checkFavoriteMovieUseCase: CheckFavoriteMovieUseCase
 ) {

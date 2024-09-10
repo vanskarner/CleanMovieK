@@ -1,6 +1,6 @@
 package com.vanskarner.movie.businesslogic
 
-class CheckFavoriteMovieUseCase(private val localRepository: MovieLocalRepository) {
+internal class CheckFavoriteMovieUseCase(private val localRepository: MovieLocalRepository) {
 
     suspend fun execute(movieId: Int) = localRepository.checkMovie(movieId)
 

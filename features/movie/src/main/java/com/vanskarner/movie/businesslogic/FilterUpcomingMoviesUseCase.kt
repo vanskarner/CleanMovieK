@@ -4,7 +4,7 @@ import com.vanskarner.movie.MovieBasicDS
 import com.vanskarner.movie.MoviesFilterDS
 import java.util.Locale
 
-class FilterUpcomingMoviesUseCase {
+internal class FilterUpcomingMoviesUseCase {
 
     fun execute(inputValues: MoviesFilterDS): Result<MoviesFilterDS> {
         val query: String = inputValues.query.toString().lowercase().trim()

@@ -3,7 +3,7 @@ package com.vanskarner.movie.businesslogic
 import com.vanskarner.movie.MovieBasicDS
 import com.vanskarner.movie.MovieDetailDS
 
-interface MovieLocalRepository {
+internal interface MovieLocalRepository {
     suspend fun getMovies(): Result<List<MovieBasicDS>>
     suspend fun getMovie(movieId: Int): Result<MovieDetailDS>
     suspend fun deleteMovie(movieId: Int): Result<Unit>

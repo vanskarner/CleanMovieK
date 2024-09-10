@@ -2,7 +2,7 @@ package com.vanskarner.movie.businesslogic
 
 import com.vanskarner.movie.MovieDetailDS
 
-class FindUpcomingMovieUseCase(private val remoteRepository: MovieRemoteRepository) {
+internal class FindUpcomingMovieUseCase(private val remoteRepository: MovieRemoteRepository) {
 
     suspend fun execute(movieId: Int): Result<MovieDetailDS> {
         return remoteRepository.getMovie(movieId)

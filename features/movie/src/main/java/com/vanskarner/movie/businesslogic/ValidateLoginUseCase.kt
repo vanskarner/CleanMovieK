@@ -1,6 +1,6 @@
 package com.vanskarner.movie.businesslogic
 
-class ValidateLoginUseCase {
+internal class ValidateLoginUseCase {
     companion object {
         const val EMAIL = "samples@promart.com"
         const val PASSWORD = "123456"
