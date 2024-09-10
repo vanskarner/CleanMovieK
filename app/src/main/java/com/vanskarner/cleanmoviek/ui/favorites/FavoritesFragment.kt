@@ -1,4 +1,4 @@
-package com.vanskarner.cleanmoviek.ui.favoritemovies
+package com.vanskarner.cleanmoviek.ui.favorites
 
 import androidx.fragment.app.Fragment
 
