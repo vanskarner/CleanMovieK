@@ -22,7 +22,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
+        <activity
+            android:name=".ui.MenuActivity"
+            android:exported="true">
 
+        </activity>
+    </application>
 
 </manifest>
