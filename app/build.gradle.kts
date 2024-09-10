@@ -58,6 +58,9 @@ dependencies {
     kapt("com.google.dagger:hilt-android-compiler:2.48")
     //glide
     implementation("com.github.bumptech.glide:glide:4.12.0")
+    //Navigation
+    implementation("androidx.navigation:navigation-fragment:2.3.5")
+    implementation("androidx.navigation:navigation-ui:2.3.5")
 
     //test
     testImplementation(libs.junit)
