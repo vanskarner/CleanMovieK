@@ -10,10 +10,16 @@ data class MovieDetailDS(
     val id: Int,
     val title: String,
     val image: String,
-    val backgroundImage:String,
-    val voteCount:Int,
-    val voteAverage:Float,
-    val releaseDate:String,
-    val overview:String,
-    val recommended:Boolean,
+    val backgroundImage: String,
+    val voteCount: Int,
+    val voteAverage: Float,
+    val releaseDate: String,
+    val overview: String,
+    val recommended: Boolean,
+)
+
+data class MoviesFilterDS(
+    val fullList: List<MovieBasicDS>,
+    val query: CharSequence,
+    var filterList: List<MovieBasicDS> = emptyList()
 )
