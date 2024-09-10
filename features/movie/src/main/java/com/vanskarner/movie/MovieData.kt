@@ -15,7 +15,7 @@ data class MovieDetailDS(
     val voteAverage: Float,
     val releaseDate: String,
     val overview: String,
-    var recommended: Boolean,
+    var recommended: Boolean = false,
 )
 
 data class MoviesFilterDS(
