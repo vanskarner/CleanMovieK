@@ -1,4 +1,4 @@
-package com.vanskarner.cleanmoviek
+package com.vanskarner.cleanmoviek.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
