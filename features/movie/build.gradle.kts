@@ -46,6 +46,9 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:2.7.2")
     implementation("com.squareup.retrofit2:converter-gson:2.7.2")
     implementation("com.squareup.okhttp3:okhttp:4.8.1")
+    //hilt
+    implementation("com.google.dagger:hilt-android:2.48")
+    kapt("com.google.dagger:hilt-android-compiler:2.48")
 
     //Test
     testImplementation(libs.junit)
