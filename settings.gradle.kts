@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "CleanMovieK"
 include(":app")
+include(":features:movie")
