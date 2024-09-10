@@ -42,6 +42,10 @@ dependencies {
     implementation("androidx.room:room-runtime:2.6.1")
     kapt("androidx.room:room-compiler:2.6.1")
     implementation("androidx.room:room-ktx:2.6.1")
+    //retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.7.2")
+    implementation("com.squareup.retrofit2:converter-gson:2.7.2")
+    implementation("com.squareup.okhttp3:okhttp:4.8.1")
 
     //Test
     testImplementation(libs.junit)
@@ -52,4 +56,8 @@ dependencies {
     androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.0")
     androidTestImplementation("androidx.room:room-runtime:2.6.1")
     kaptAndroidTest("androidx.room:room-compiler:2.6.1")
+    testImplementation("com.squareup.retrofit2:retrofit:2.7.2")
+    testImplementation("com.squareup.retrofit2:converter-gson:2.7.2")
+    testImplementation("com.squareup.okhttp3:logging-interceptor:4.8.1")
+    testImplementation("com.squareup.okhttp3:mockwebserver:4.10.0")
 }
