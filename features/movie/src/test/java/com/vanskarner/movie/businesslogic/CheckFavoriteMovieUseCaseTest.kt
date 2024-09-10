@@ -9,11 +9,10 @@ import org.mockito.Mockito.`when`
 
 class CheckFavoriteMovieUseCaseTest {
     private lateinit var useCase: CheckFavoriteMovieUseCase
-    private lateinit var localRepository: MovieLocalRepository
+    private val localRepository: MovieLocalRepository = mock()
 
     @Before
     fun setup() {
-        localRepository = mock()
         useCase = CheckFavoriteMovieUseCase(localRepository)
     }
 
@@ -27,7 +26,7 @@ class CheckFavoriteMovieUseCaseTest {
     }
 
     @Test
-    fun execute_withInvalidID_itemNotExists()= runTest {
+    fun execute_withInvalidID_itemNotExists() = runTest {
         val invalidId = 666
         `when`(localRepository.checkMovie(invalidId)).thenReturn(Result.success(false))
         val exists = useCase.execute(invalidId).getOrThrow()
