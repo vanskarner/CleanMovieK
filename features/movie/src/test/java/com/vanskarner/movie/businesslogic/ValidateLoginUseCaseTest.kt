@@ -1,6 +1,5 @@
-package com.vanskarner.movie
+package com.vanskarner.movie.businesslogic
 
-import com.vanskarner.movie.businesslogic.ValidateLoginUseCase
 import org.junit.Test
 
 import org.junit.Assert.*
