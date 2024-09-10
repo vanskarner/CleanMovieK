@@ -65,10 +65,10 @@ class ViewErrorTypesModule {
 
     @Provides
     @Singleton
-    fun provideViewErrorFilter(
+    fun provideErrorFilter(
         errorDialog: ErrorDialog,
         errorMap: Map<Class<*>, @JvmSuppressWildcards Provider<ErrorView<*>>>
-    ): ViewErrorFilter {
+    ): ErrorFilter {
         val defaultError = UnknownError(errorDialog)
         return ViewErrorFilter(defaultError, errorMap)
     }
