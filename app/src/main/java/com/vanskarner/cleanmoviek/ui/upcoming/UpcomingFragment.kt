@@ -71,6 +71,7 @@ internal class UpcomingFragment : BaseBindingFragment<UpcomingFragmentBinding>()
         viewModel.initialLoad(pagination.getPageNumber())
         viewModel.list.observe(viewLifecycleOwner) {
             upcomingAdapter.addItems(it)
+            pagination.increment()
             pagination.enableScroll()
         }
         viewModel.error.observe(viewLifecycleOwner) {
