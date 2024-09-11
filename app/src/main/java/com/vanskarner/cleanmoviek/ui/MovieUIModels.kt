@@ -8,7 +8,7 @@ data class MovieDetailModel(
     val voteCount: Int = 0,
     val voteAverage: Float = 0f,
     val releaseDate: String = "",
-    val overview: String? = "",
+    val overview: String = "",
     val recommended: Boolean = false
 )
 
