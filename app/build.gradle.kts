@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("androidx.navigation.safeargs")
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
 }
@@ -59,8 +60,10 @@ dependencies {
     //glide
     implementation("com.github.bumptech.glide:glide:4.12.0")
     //Navigation
-    implementation("androidx.navigation:navigation-fragment:2.3.5")
-    implementation("androidx.navigation:navigation-ui:2.3.5")
+//    implementation("androidx.navigation:navigation-fragment:2.3.5")
+//    implementation("androidx.navigation:navigation-ui:2.3.5")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
     //others
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.4.1")
