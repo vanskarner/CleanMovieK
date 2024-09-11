@@ -61,6 +61,10 @@ dependencies {
     //Navigation
     implementation("androidx.navigation:navigation-fragment:2.3.5")
     implementation("androidx.navigation:navigation-ui:2.3.5")
+    //others
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.4.1")
+    implementation("androidx.fragment:fragment-ktx:1.6.2")
 
     //test
     testImplementation(libs.junit)
