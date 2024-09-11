@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
@@ -13,6 +15,12 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
+
+        val dataProperties = Properties()
+        file("../data.properties").inputStream().use { dataProperties.load(it) }
+        buildConfigField("String", "themoviedbApiKey", "\"${dataProperties.getProperty("themoviedbApiKey") ?: ""}\"")
+        buildConfigField("String", "themoviedbURL", "\"${dataProperties.getProperty("themoviedbURL") ?: ""}\"")
+        buildConfigField("String", "themoviedbImageURL", "\"${dataProperties.getProperty("themoviedbImageURL") ?: ""}\"")
     }
 
     buildTypes {
@@ -30,6 +38,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+    buildFeatures {
+        buildConfig = true
     }
 }
 

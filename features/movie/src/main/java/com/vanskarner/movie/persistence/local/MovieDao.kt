@@ -11,21 +11,21 @@ interface MovieDao {
     suspend fun insert(movieEntity: MovieEntity)
 
     @Query("SELECT * FROM movie_detail WHERE id=:id LIMIT 1")
-    fun find(id: Int): MovieEntity?
+    suspend fun find(id: Int): MovieEntity?
 
     @Query("SELECT * FROM movie_detail")
-    fun toList(): List<MovieEntity>
+    suspend fun toList(): List<MovieEntity>
 
     @Query("DELETE FROM movie_detail WHERE id=:id")
-    fun deleteItem(id: Int)
+    suspend fun deleteItem(id: Int)
 
     @Query("DELETE FROM movie_detail")
-    fun deleteAll(): Int
+    suspend fun deleteAll(): Int
 
     @Query("SELECT COUNT(id) FROM movie_detail")
-    fun getQuantity(): Int
+    suspend fun getQuantity(): Int
 
     @Query("SELECT EXISTS(SELECT * FROM movie_detail WHERE id=:id LIMIT 1)")
-    fun checkExistence(id: Int): Boolean
+    suspend fun checkExistence(id: Int): Boolean
 
 }

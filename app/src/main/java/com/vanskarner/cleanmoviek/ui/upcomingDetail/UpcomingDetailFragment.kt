@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Base64
 import android.view.LayoutInflater
 import android.view.MenuItem
+import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.viewModels
@@ -55,7 +56,11 @@ class UpcomingDetailFragment : BaseBindingFragment<UpcomingDetailFragmentBinding
 
     override fun setupViewModel() {
         viewModel.checkFavorite(args.movieId)
-        viewModel.item.observe(viewLifecycleOwner) { binding.movieDetail = it }
+        viewModel.item.observe(viewLifecycleOwner) {
+            binding.movieDetail = it
+            binding.viewDetailContent.visibility = View.VISIBLE
+            binding.upcomingDetailProgress.visibility = View.GONE
+        }
         viewModel.markedAsFavorite.observe(viewLifecycleOwner) {
             binding.upcomingDetailToolbar.menu
                 .findItem(R.id.favoriteMenuItem)

@@ -1,6 +1,7 @@
 package com.vanskarner.movie.main
 
 import com.google.gson.GsonBuilder
+import com.vanskarner.movie.BuildConfig
 import com.vanskarner.movie.DefaultMovieComponent
 import com.vanskarner.movie.MovieComponent
 import com.vanskarner.movie.businesslogic.CheckFavoriteMovieUseCase
@@ -128,9 +129,9 @@ internal class MovieModule {
     @Provides
     @Singleton
     fun provideMovieRemoteRepository(): MovieRemoteRepository {
-        val apiKey = ""
-        val baseImageUrl = ""
-        val baseUrl = ""
+        val apiKey = BuildConfig.themoviedbApiKey
+        val baseImageUrl = BuildConfig.themoviedbImageURL
+        val baseUrl = BuildConfig.themoviedbURL
         val interceptor = MovieRemoteErrorInterceptor()
         val httpClient = OkHttpClient.Builder()
             .connectTimeout(8, TimeUnit.SECONDS)

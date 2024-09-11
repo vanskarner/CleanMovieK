@@ -1,6 +1,5 @@
 package com.vanskarner.cleanmoviek.ui.upcoming
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -13,12 +12,8 @@ import javax.inject.Inject
 @FragmentScoped
 internal class UpcomingAdapter @Inject constructor() : RecyclerView.Adapter<UpcomingViewHolder>() {
 
-    private var onClick: (item: MovieBasicModel) -> Unit = {}
-    private var list: MutableList<MovieBasicModel> = ArrayList()
-
-    fun setOnClickListener(listener: (item: MovieBasicModel) -> Unit) {
-        onClick = listener
-    }
+    var onClick: (item: MovieBasicModel) -> Unit = {}
+    var list: MutableList<MovieBasicModel> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UpcomingViewHolder {
         val binding = UpcomingItemBinding
@@ -33,11 +28,10 @@ internal class UpcomingAdapter @Inject constructor() : RecyclerView.Adapter<Upco
         holder.bindView(item, onClick)
     }
 
-    @SuppressLint("NotifyDataSetChanged")
-    fun updateList(list: List<MovieBasicModel>) {
-        this.list.clear()
-        this.list.addAll(list)
-        notifyDataSetChanged()
+    fun addItems(newItems: List<MovieBasicModel>) {
+        val startPosition = list.size
+        list.addAll(newItems)
+        notifyItemRangeInserted(startPosition, newItems.size)
     }
 
 }

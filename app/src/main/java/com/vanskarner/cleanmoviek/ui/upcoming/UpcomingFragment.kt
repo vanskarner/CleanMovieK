@@ -3,9 +3,11 @@ package com.vanskarner.cleanmoviek.ui.upcoming
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import com.vanskarner.cleanmoviek.R
@@ -44,16 +46,37 @@ internal class UpcomingFragment : BaseBindingFragment<UpcomingFragmentBinding>()
         val toolbar = binding.upcomingToolbar
         val searchView = toolbar.menu.findItem(R.id.searchMenuItem).actionView as SearchView
         searchView.queryHint = getString(R.string.search)
-        searchView.setOnSearchClickListener { viewModel.asyncCancel() }
-        searchView.setOnCloseListener {
-            pagination.enableScroll()
-            false
+        searchView.setOnSearchClickListener {
+            val msg = "Función de búsqueda no implementada"
+            Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
         }
-        //
+
+        binding.upcomingRecycler.addOnScrollListener(pagination)
+        binding.upcomingRecycler.adapter = upcomingAdapter
+        upcomingAdapter.onClick = {
+            val direction = UpcomingFragmentDirections.upcomingAction()
+            direction.movieId = it.id
+            findNavController().navigate(direction)
+        }
+        pagination.setPositionType(Pagination.LAST_POSITION_COMPLETE)
+        pagination.setOnLoadMoreListener(object : OnLoadMoreListener {
+            override fun onLoadMore(page: Int) {
+                viewModel.loadMore(page)
+            }
+        })
+        pagination.enableScroll()
     }
 
     override fun setupViewModel() {
-
+        viewModel.initialLoad(pagination.getPageNumber())
+        viewModel.list.observe(viewLifecycleOwner) {
+            upcomingAdapter.addItems(it)
+            pagination.enableScroll()
+        }
+        viewModel.error.observe(viewLifecycleOwner) {
+            errorDialog.setError(it) { errorDialog.dismiss() }
+            errorDialog.show(childFragmentManager)
+        }
     }
 
 }

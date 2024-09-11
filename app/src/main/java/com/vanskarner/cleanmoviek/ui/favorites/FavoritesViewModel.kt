@@ -55,7 +55,10 @@ class FavoritesViewModel @Inject constructor(
     fun deleteAllFavorites() {
         viewModelScope.launch {
             movieComponent.deleteAllFavorite()
-                .onSuccess { _visibilityDeletedItems.value = true }
+                .onSuccess {
+                    _list.value = emptyList()
+                    _visibilityDeletedItems.value = true
+                }
                 .onFailure { _error.value = errorFilter.filter(it) }
         }
     }

@@ -6,8 +6,10 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.vanskarner.cleanmoviek.R
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.Objects
 
+@AndroidEntryPoint
 class MenuActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
