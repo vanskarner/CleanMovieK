@@ -15,3 +15,11 @@ Las pruebas al componente películas estan completas, pero aún me falta las pru
 | Componente movie: persistencia local | Componente movie: dominio y persistencia remota |
 | --- | --- |
 | ![test1](https://github.com/user-attachments/assets/a8f2028e-26e8-4b1d-80b7-a8be793d18fb) | ![test2](https://github.com/user-attachments/assets/ad3d99c3-e576-45d4-862d-f97dd8a1177a) |
+
+## Consideraciones
+- Si quieres utilizar la aplicación, primero tienes que generar tu clave api de desarrollador en [Themoviedb API](https://www.themoviedb.org/settings/api). Luego, una vez generado, debe poner esa clave en el archivo `data.properties` que se encuentra en la carpeta features:
+```properties
+#Project properties
+themoviedbApiKey=HERE_YOUR_KEY
+```
+- Para ejecutar cualquier tipo de prueba, no es necesaria una clave API.
