@@ -35,12 +35,11 @@ class RetrofitMovieRepositoryTest {
                 deserializer
             ).create()
         )
-        val interceptor = MovieRemoteErrorInterceptor()
+
         val httpClient = OkHttpClient.Builder()
             .connectTimeout(80, TimeUnit.MILLISECONDS)
             .readTimeout(80, TimeUnit.MILLISECONDS)
             .writeTimeout(80, TimeUnit.MILLISECONDS)
-            .addInterceptor(interceptor)
             .build()
         val baseUrl = mockServer.url("").toString()
         val movieApiClient = Retrofit.Builder()

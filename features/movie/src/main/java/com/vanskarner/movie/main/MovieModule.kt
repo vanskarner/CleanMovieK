@@ -20,7 +20,6 @@ import com.vanskarner.movie.persistence.local.RoomMovieLocalRepository
 import com.vanskarner.movie.persistence.remote.MovieApiClient
 import com.vanskarner.movie.persistence.remote.MovieDTO
 import com.vanskarner.movie.persistence.remote.MovieDeserializer
-import com.vanskarner.movie.persistence.remote.MovieRemoteErrorInterceptor
 import com.vanskarner.movie.persistence.remote.RetrofitMovieRepository
 import dagger.Module
 import dagger.Provides
@@ -132,11 +131,9 @@ internal class MovieModule {
         val apiKey = BuildConfig.themoviedbApiKey
         val baseImageUrl = BuildConfig.themoviedbImageURL
         val baseUrl = BuildConfig.themoviedbURL
-        val interceptor = MovieRemoteErrorInterceptor()
         val httpClient = OkHttpClient.Builder()
             .connectTimeout(8, TimeUnit.SECONDS)
             .readTimeout(8, TimeUnit.SECONDS)
-            .addInterceptor(interceptor)
             .build()
         val deserializer = MovieDeserializer(baseImageUrl)
         val gsonConverter = GsonConverterFactory.create(
